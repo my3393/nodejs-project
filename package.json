@@ -16,5 +16,10 @@
     "url": "https://github.com/my3393/nodejs-project/issues"
   },
   "homepage": "https://github.com/my3393/nodejs-project#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^3.0.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.20"
+  }
 }
