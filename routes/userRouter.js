@@ -1,6 +1,6 @@
 const express = require('express');
 const userModel = require('../models/userModels');
-
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 
@@ -15,6 +15,7 @@ router.route('/user').post((req,res)=>{
         res.send({
             code:0,
             msg:'注册成功'
+           
         })
     }).catch(error=>{
         res.send({
@@ -47,9 +48,15 @@ router.route('/user').post((req,res)=>{
                     })
                 } else {
                     if (isok) {
+                        let token = jwt.sign({
+                            username: data.username,
+                            userId: data._id
+                        },'MY_GOD');
+
                         res.send({
                             code:0,
-                            msg:'登录成功'
+                            msg:'登录成功',
+                            TOKEN:token
                         })
                     } else {
                         res.send({
@@ -72,6 +79,6 @@ router.route('/user').post((req,res)=>{
 
 
 })
-
+router.post
 
 module.exports = router;
