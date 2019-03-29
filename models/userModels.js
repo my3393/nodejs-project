@@ -6,4 +6,4 @@ const db = require('../config/db');
      nickName : String
  })
 
- module.exports = db.model('user',schema)
+ module.exports = db.model('user',schema);
